@@ -13,8 +13,8 @@
     "precio":800,
     "precioUnitario":800,
     "favorito":false,
-    "vendido":false,
-    "off":true,
+    "vendido":true,
+    "off":false,
     "porcentaje":10
   },
   {
