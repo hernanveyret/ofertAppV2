@@ -5,8 +5,6 @@ import ImgCarritoVacio from "../img/carritoVacio.webp";
 
 const Carrito = ({productos,setProductos,cantPares,total,borraProducto,sumarProducto, restarProducto, setCarrito,setHome}) => {
   const [nombre, setNombre] = useState("");
-
-  console.log(productos)
   
   const handleNombre = (e) => {
     setNombre(e)
@@ -18,7 +16,7 @@ const Carrito = ({productos,setProductos,cantPares,total,borraProducto,sumarProd
     let msg =`Mi pedido:\n`;
         msg += `Me llamo ${nombre}\n`
     productos.forEach(e => {
-       msg += `${e.titulo} / Talle: ${e.talle} / ${e.color} / Cant: ${e.cant} / $${e.precio} |\n`       
+       msg += `${e.titulo} / Talle: ${e.talleSelect} / ${e.color} / Cant: ${e.cant} / $${e.precio} |\n`       
     })
         msg += `Total: $${total}`
 
@@ -30,10 +28,8 @@ const Carrito = ({productos,setProductos,cantPares,total,borraProducto,sumarProd
   }else {
     let $input = document.getElementById("nombre-validacion");
     $input.style.display = "block";
-  }
-    
-  }
-    
+  }    
+  }    
 
   const CarritoVacio = () => {
     return (

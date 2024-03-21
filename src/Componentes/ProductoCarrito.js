@@ -2,7 +2,6 @@ import React from 'react';
 import './productoCarrito.css'
 const ProductoCarrito = ({data,borraProducto, sumarProducto, restarProducto}) => {
 
-
   return (
     <div className="cadaProducto" key={data.id}>
       <div className="imgProducto"><img src={data.imagen} alt="Imagen producto" /></div>
