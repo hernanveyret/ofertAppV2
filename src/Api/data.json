@@ -50,7 +50,7 @@
     "precioUnitario":1500,
     "favorito":false,
     "vendido":false,
-    "off":true,
+    "off":false,
     "porcentaje":10
   },
   {
@@ -67,7 +67,7 @@
     "precioUnitario":1500,
     "favorito":false,
     "vendido":false,
-    "off":false,
+    "off":true,
     "porcentaje":15
   },
   {
