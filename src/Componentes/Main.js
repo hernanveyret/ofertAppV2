@@ -47,10 +47,8 @@ const Main = () => {
   const [loading, setLoading] = useState(false)
   const [cantidadProductos, setCantidadProductos] = useState(0)
 
-  //const url = "http://localhost:5000/ofertas"
-  
-  
-  const url = "https://raw.githubusercontent.com/hernanveyret/ofertAppV2/main/src/Api/data.json"
+  const url = "http://localhost:5000/ofertas"  
+  //const url = "https://raw.githubusercontent.com/hernanveyret/ofertAppV2/main/src/Api/data.json"
 
  useEffect(() => {
    const dataFetch = async () => {    
@@ -82,28 +80,14 @@ const Main = () => {
       setLoading(false)
     }
   }
-  dataFetch()
-  
-  
+  dataFetch()  
  },[url,favoritos])
 
  const calcularDescuento = (precio,descuento) => {
     let subtTotal = Math.round((precio / 100) * descuento);
     return  precio - subtTotal;
  }
-/*
 
-useEffect(() => {
-
-  db.forEach(off => {
-    if(off.off){
-      off.precio = calcularDescuento(off.precio, off.porcentaje)
-    }
-   })
-   
-   
-},[db])
-*/
 // Verifica si hay productos en favoritos, cambia el valor por defecto para mostrar la estrella en pantalla
 favoritos.forEach(e => {
   db.forEach(a => {
@@ -148,8 +132,10 @@ favoritos.forEach(e => {
  const closeModal = () => {
   setLupa(false);
  }
+
  const cerrarVendido = () => {
-  setProductoVendido(false); }
+  setProductoVendido(false);
+ }
 
   //Ingresa el producto seleccionado al carrito
  const ingresarProductos = (id) => {  
@@ -159,14 +145,21 @@ favoritos.forEach(e => {
     validacion.innerHTML ="* Ingrese un talle"
   }else{
   const productoCarrito = db.filter(e => e.id === id);
+
+  for ( let i = 0; i < productos.length; i++){
+    if(productos[i].id === id && productos[i].talleSelect === talleSelect){
+      setRepetido(true)
+      return;
+    }
+  };
  
     //Al nuevo producto seleccionado le agrego la propiedad talle
   productoCarrito[0] = {...productoCarrito[0],talleSelect: talleSelect}
-  
+  productoCarrito[0] = { ...productoCarrito[0],idCarrito: validacionId+talleSelect}
     // Al nuevo producto seleccionado le agrego una cantidad
   productoCarrito[0] = {...productoCarrito[0],cant: 1}
-
-  productoCarrito[0].id = Math.random()
+  productoCarrito[0] = { ...productoCarrito[0],key: Math.random() }
+  //productoCarrito[0].id = Math.random()
     setProductos([...productos,productoCarrito[0]]);
     setCheckproducto(true);
     setTalleSelect(null);
@@ -175,7 +168,7 @@ favoritos.forEach(e => {
 }
   //Borra el producto del carrito de compras
  const borraProducto = (id) => {
-  const isDelete = productos.filter(e => e.id !== id)
+  const isDelete = productos.filter(e => e.idCarrito !== id)
   setProductos(isDelete)
  }
 
@@ -190,7 +183,7 @@ favoritos.forEach(e => {
  // Suma la cantidad de productos unitarios en el carrito de compras.
  const sumarProducto = (id) => {
   const sumaCantidad = productos.map(e => {
-    if( e.id === id ) {
+    if( e.idCarrito === id ) {
       return {
         ...e,
         cant: e.cant + 1,
@@ -205,7 +198,7 @@ favoritos.forEach(e => {
  // Resta la cantidad de productos unitarios en el carrito de compras
   const restarProducto = (id) => {
   const restaCantidad = productos.map(e => {
-    if( e.id === id ) {
+    if( e.idCarrito === id ) {
       return {
         ...e,
         cant: e.cant - 1,

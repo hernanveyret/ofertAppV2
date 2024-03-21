@@ -7,3 +7,4 @@
 # Se agregaron items en la base de datos para uso de la app.
 # En el carrito se agrego poder aumentar y disminuir la cantidad de productos unitarios.
 # Se le agrego una validacion cuando se envia el pedido para que si o si ingrese su nombre.
+# Se agrego una validacion para que si el cliente compra el mismo producto y mismo talle no se agregue al carito.

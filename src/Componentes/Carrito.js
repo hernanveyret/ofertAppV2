@@ -5,6 +5,8 @@ import ImgCarritoVacio from "../img/carritoVacio.webp";
 
 const Carrito = ({productos,setProductos,cantPares,total,borraProducto,sumarProducto, restarProducto, setCarrito,setHome}) => {
   const [nombre, setNombre] = useState("");
+
+  console.log(productos)
   
   const handleNombre = (e) => {
     setNombre(e)
@@ -45,7 +47,7 @@ const Carrito = ({productos,setProductos,cantPares,total,borraProducto,sumarProd
   return (
     <div className="contenedorCarrito">
       { productos.length > 0 ? <h1 className="tituloPedidos">Tu pedido</h1> : ""}
-      { productos.length > 0 ? productos.map(e => <ProductoCarrito key={e.id} data={e} borraProducto={borraProducto} sumarProducto={sumarProducto} restarProducto={restarProducto} /> ) :  <CarritoVacio /> }
+      { productos.length > 0 ? productos.map(e => <ProductoCarrito key={e.key} data={e} borraProducto={borraProducto} sumarProducto={sumarProducto} restarProducto={restarProducto} /> ) :  <CarritoVacio /> }
       <div className="navTotal">
         <div className="cantProductos">
           <p>Cant P.</p>

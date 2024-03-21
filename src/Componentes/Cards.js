@@ -4,7 +4,7 @@ import FavOn from "../img/favOn.webp";
 import "./cards.css";
 
 const Cards = ({ openModal,data,idFavorito,ingresarProductos,setProductoVendido,setTalleSelect }) => {
- 
+
 
 let idValidacionTalle = data.id + "talle";
   
@@ -42,7 +42,7 @@ const SelectXnumero = ({data}) => {
  }
  
   return (
-    <div className="tarjeta" key={data.id}>
+    <div className="tarjeta" key={data.key}>
       <h4 className="titulo">{data.titulo}</h4>
         <img src={data.vendido ? data.imagenStock : data.imagen} alt="imagen" />
           <p className="validacion-talles" id={idValidacionTalle}></p>

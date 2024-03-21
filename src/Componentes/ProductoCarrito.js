@@ -15,11 +15,11 @@ const ProductoCarrito = ({data,borraProducto, sumarProducto, restarProducto}) =>
         <p>$ {data.precio}</p>
         <p>{data.cant}</p>
       <div className="navBtn">
-        <button className="btnSumar" onClick={(e) => sumarProducto(data.id)}></button>
+        <button className="btnSumar" onClick={(e) => sumarProducto(data.idCarrito)}></button>
         { data.cant > 1 ? 
-          <button className="btnRestar" onClick={(e) => restarProducto(data.id)}></button>
+          <button className="btnRestar" onClick={(e) => restarProducto(data.idCarrito)}></button>
         :
-          <button className="btnBorrar" onClick={(e) => borraProducto(data.id)}></button>
+          <button className="btnBorrar" onClick={(e) => borraProducto(data.idCarrito)}></button>
         }
       </div>
       </div>
