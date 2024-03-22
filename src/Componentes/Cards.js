@@ -23,15 +23,14 @@ const Select = ({data}) => {
 
 //crea un select con talles en numeros
 const SelectXnumero = ({data}) => {
-  const [options, setOptions ] = useState([]);
+  
   //let talles =  data.talleFin - data.talleInit
-  let talles = [data.talleInit] 
-  for ( let i = data.talleInit; i < data.talleFin; i++){
-      talles.push(i+1)
-  }
-    setOptions(talles)  
+  let talles = [] 
+  for ( let i = data.talleInit; i <= data.talleFin; i++){
+      talles.push(i)
+  }      
   return (
-       options.map((e,i) => <option key={i} value={e}>{e}</option>)
+       talles.map((e,i) => <option key={i} value={e}>{e}</option>)
   )
 }
 
