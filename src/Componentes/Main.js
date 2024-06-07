@@ -25,8 +25,8 @@ import ShopOn from '../img/shopOn.webp'
 import ShopOff from '../img/shopOff.webp'
 
 const Main = () => {
-  const [inicio, setInicio] = useState(true)
-  const [home, setHome] = useState(false)
+  const [inicio, setInicio] = useState(false)
+  const [home, setHome] = useState(true)
   const [Fav, setFav] = useState(false)
   const [lupa, setLupa] = useState(false)
   const [carrito, setCarrito] = useState(false)
