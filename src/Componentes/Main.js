@@ -25,13 +25,12 @@ import ShopOn from '../img/shopOn.webp'
 import ShopOff from '../img/shopOff.webp'
 
 const Main = () => {
-  const [inicio, setInicio] = useState(false)
-  const [home, setHome] = useState(true)
+  const [inicio, setInicio] = useState(true)
+  const [home, setHome] = useState(false)
   const [Fav, setFav] = useState(false)
   const [lupa, setLupa] = useState(false)
   const [carrito, setCarrito] = useState(false)
-  const [talleSelect, setTalleSelect] = useState(null)
-
+  
   const [db, setDb] = useState([])
   const [error, setError] = useState("")
   //const [localS, setLocalS] = useState(localStorage.getItem("favoritosAppOff")) // ve si hay productos en localStorage 
@@ -136,33 +135,37 @@ favoritos.forEach(e => {
  const cerrarVendido = () => {
   setProductoVendido(false);
  }
-
-  //Ingresa el producto seleccionado al carrito
- const ingresarProductos = (id) => {  
+   
+   //Ingresa el producto seleccionado al carrito
+   const ingresarProductos = (id) => {
+     //Toma el valor que tiene el select en el momento y lo guarda en una variable
+    const miSelectTalle = document.getElementById(`${id}select`);
+    let selectedTalle = miSelectTalle.value
+  
   let validacionId = id + "talle";
   let validacion = document.getElementById(validacionId);
-  if(talleSelect === null) {
+  if(selectedTalle === null || selectedTalle === 'Talles') {
     validacion.innerHTML ="* Ingrese un talle"
   }else{
   const productoCarrito = db.filter(e => e.id === id);
 
   for ( let i = 0; i < productos.length; i++){
-    if(productos[i].id === id && productos[i].talleSelect === talleSelect){
+    if(productos[i].id === id && productos[i].talleSelect === selectedTalle){
       setRepetido(true)
       return;
     }
   };
  
     //Al nuevo producto seleccionado le agrego la propiedad talle
-  productoCarrito[0] = {...productoCarrito[0],talleSelect: talleSelect}
-  productoCarrito[0] = { ...productoCarrito[0],idCarrito: validacionId+talleSelect}
+  productoCarrito[0] = {...productoCarrito[0],talleSelect: selectedTalle}
+  productoCarrito[0] = { ...productoCarrito[0],idCarrito: validacionId+selectedTalle}
     // Al nuevo producto seleccionado le agrego una cantidad
   productoCarrito[0] = {...productoCarrito[0],cant: 1}
   productoCarrito[0] = { ...productoCarrito[0],key: Math.random() }
   //productoCarrito[0].id = Math.random()
     setProductos([...productos,productoCarrito[0]]);
     setCheckproducto(true);
-    setTalleSelect(null);
+    selectedTalle = null
     validacion.innerHTML =""
  }
 }
@@ -230,8 +233,8 @@ favoritos.forEach(e => {
         { inicio && <Inicio setInicio={setInicio} setHome={setHome}/>}
         { carrito && <Carrito productos={productos} setProductos={setProductos} cantPares={cantidadProductos} total={total} borraProducto={borraProducto} sumarProducto={sumarProducto} restarProducto={restarProducto} setCarrito={setCarrito} setHome={setHome}/>}
         { lupa && <Lupa closeModal={closeModal} imgLupa={imgLupa}/> }
-        { home && db.map(e => (<Cards data={e} key={e.id} idFavorito={idFavorito} openModal={openModal} ingresarProductos={ingresarProductos} setProductoVendido={setProductoVendido} setTalleSelect={setTalleSelect}/>)) }
-        { Fav && <Favoritos favoritos={favoritos} idFavorito={idFavorito} openModal={openModal} ingresarProductos={ingresarProductos} setProductoVendido={setProductoVendido} setTalleSelect={setTalleSelect}/>}
+        { home && db.map(e => (<Cards data={e} key={e.id} idFavorito={idFavorito} openModal={openModal} ingresarProductos={ingresarProductos} setProductoVendido={setProductoVendido} />)) }
+        { Fav && <Favoritos favoritos={favoritos} idFavorito={idFavorito} openModal={openModal} ingresarProductos={ingresarProductos} setProductoVendido={setProductoVendido}/>}
         { error && <Error msj={error} /> }
         { checkproducto && <CheckCompra setCheckproducto={setCheckproducto}/> }
         { info && <Info setInfo={setInfo}/> }
