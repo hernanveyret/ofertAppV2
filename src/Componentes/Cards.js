@@ -7,9 +7,7 @@ import SelectXnumero from './SelectXnumero';
 
 const Cards = ({ openModal,data,idFavorito,ingresarProductos,setProductoVendido}) => {
 
-
-let idValidacionTalle = data.id + "talle";
-  
+let idValidacionTalle = data.id + "talle"; 
 
   return (
     <div className="tarjeta" key={data.key}>
