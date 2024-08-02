@@ -98,15 +98,15 @@ favoritos.forEach(e => {
 
  //Capturo el id del producto, lo guardo en una variable y se guarda dentro del estado
  const idFavorito = (id) => {
- const filtro = db.filter(elemento => elemento.id === id)
-    filtro[0].favorito = !filtro[0].favorito
+ const filtro = db.find(elemento => elemento.id === id)
+    filtro.favorito = !filtro.favorito
       /* Si el valor del producto es falso, crea un nuevo array con todos los elementos diferentes al id seleccionado 
       y actualiza el estado con esos productos para eliminar al que quedo como false. */
-    if(filtro[0].favorito === false) {
-      const deleteFavorito = favoritos.filter(e => e.id !== filtro[0].id)
+    if(filtro.favorito === false) {
+      const deleteFavorito = favoritos.filter(e => e.id !== filtro.id)
       setFavoritos(deleteFavorito)
     }else {
-      setFavoritos([...favoritos,filtro[0]])
+      setFavoritos([...favoritos,filtro])
     }   
  }
 
@@ -121,8 +121,8 @@ favoritos.forEach(e => {
 
  // Abre ventana modal con la imagen del producto
  const openModal = (id) => {
-  const productoLupa = db.filter(e => e.id === id)
-  let img = productoLupa[0].imagen
+  const productoLupa = db.find(e => e.id === id)
+  let img = productoLupa.imagen
   setImgLupa(img)
   setLupa(true);
  }
@@ -147,7 +147,7 @@ favoritos.forEach(e => {
   if(selectedTalle === null || selectedTalle === 'Talles') {
     validacion.innerHTML ="* Ingrese un talle"
   }else{
-  const productoCarrito = db.filter(e => e.id === id);
+  let productoCarrito = db.find(e => e.id === id);
 
   for ( let i = 0; i < productos.length; i++){
     if(productos[i].id === id && productos[i].talleSelect === selectedTalle){
@@ -157,13 +157,13 @@ favoritos.forEach(e => {
   };
  
     //Al nuevo producto seleccionado le agrego la propiedad talle
-  productoCarrito[0] = {...productoCarrito[0],talleSelect: selectedTalle}
-  productoCarrito[0] = { ...productoCarrito[0],idCarrito: validacionId+selectedTalle}
+  productoCarrito = {...productoCarrito,talleSelect: selectedTalle}
+  productoCarrito = { ...productoCarrito,idCarrito: validacionId+selectedTalle}
     // Al nuevo producto seleccionado le agrego una cantidad
-  productoCarrito[0] = {...productoCarrito[0],cant: 1}
-  productoCarrito[0] = { ...productoCarrito[0],key: Math.random() }
-  //productoCarrito[0].id = Math.random()
-    setProductos([...productos,productoCarrito[0]]);
+  productoCarrito = {...productoCarrito,cant: 1}
+  productoCarrito = { ...productoCarrito,key: Math.random() }
+  //productoCarrito.id = Math.random()
+    setProductos([...productos,productoCarrito]);
     setCheckproducto(true);
     selectedTalle = null
     validacion.innerHTML =""
