@@ -208,6 +208,40 @@
   },
   {
     "id":13,
+    "titulo":"Short Para nena",
+    "imagen":"img/img20.webp",
+    "imagenStock":"img/imge20.webp",
+    "talle":["16"],
+    "talleInit":"",
+    "talleFin":"",
+    "descripcion":"Short de modal con puntilla para nena.",
+    "color":"Rosa",
+    "precio":3000,
+    "precioUnitario":3000,
+    "favorito":false,
+    "vendido":false,
+    "off":false,
+    "porcentaje":""
+  },
+  {
+    "id":14,
+    "titulo":"Short Para cbebe",
+    "imagen":"img/img21.webp",
+    "imagenStock":"img/imge21.webp",
+    "talle":["8"],
+    "talleInit":"",
+    "talleFin":"",
+    "descripcion":"Shor para bebe de algodon rustico.",
+    "color":"Rosa",
+    "precio":3000,
+    "precioUnitario":3000,
+    "favorito":false,
+    "vendido":false,
+    "off":false,
+    "porcentaje":""
+  },
+  {
+    "id":15,
     "titulo":"Remera dama",
     "imagen":"img/img5.webp",
     "imagenStock":"img/imge5.webp",
@@ -224,7 +258,7 @@
     "porcentaje":""
   },
   {
-    "id":14,
+    "id":16,
     "titulo":"Remera dama",
     "imagen":"img/img7.webp",
     "imagenStock":"img/imge7.webp",
@@ -237,6 +271,23 @@
     "precioUnitario":7000,
     "favorito":false,
     "vendido":true,
+    "off":false,
+    "porcentaje":""
+  },
+  {
+    "id":17,
+    "titulo":"Short de Jeans",
+    "imagen":"img/img16.webp",
+    "imagenStock":"img/imge16.webp",
+    "talle":["38","40"],
+    "talleInit":"",
+    "talleFin":"",
+    "descripcion":"Short de jeans alastizado, detalle: un poco quemado por el sol.",
+    "color":"Jean Gastado",
+    "precio":7000,
+    "precioUnitario":7000,
+    "favorito":false,
+    "vendido":false,
     "off":false,
     "porcentaje":""
   }
