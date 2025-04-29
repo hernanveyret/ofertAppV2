@@ -12,7 +12,7 @@ let idValidacionTalle = data.id + "talle";
   return (
     <div className="tarjeta" key={data.key}>
       <h4 className="titulo">{data.titulo}</h4>
-        <img src={data.vendido ? data.imagenStock : data.imagen} alt="imagen" />
+        <img src={data.vendido ? data.imagenStock : data.imagen} alt="imagen" onClick={(e) => openModal(data.id)}/>
           <p className="validacion-talles" id={idValidacionTalle}></p>
           { data.off && <p className="cartel-oferta">OFERTA!!!</p> }
           
