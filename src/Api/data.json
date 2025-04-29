@@ -395,6 +395,23 @@
   },
   {
     "id":24,
+    "titulo":"Pantalon bebe",
+    "imagen":"img/img45.webp",
+    "imagenStock":"img/imge5.webp",
+    "talle":["1"],
+    "talleInit":"",
+    "talleFin":"",
+    "descripcion":"Pantalon para bebe de microfibra y friza.",
+    "color":"Rosa",
+    "precio":5000,
+    "precioUnitario":5000,
+    "favorito":false,
+    "vendido":false,
+    "off":false,
+    "porcentaje":""
+  },
+  {
+    "id":25,
     "titulo":"Gorro coya",
     "imagen":"img/img39.webp",
     "imagenStock":"img/imge39.webp",
@@ -411,7 +428,7 @@
     "porcentaje":""
   },
   {
-    "id":25,
+    "id":26,
     "titulo":"Gorro de lana",
     "imagen":"img/img44.webp",
     "imagenStock":"img/imge44.webp",
@@ -428,7 +445,7 @@
     "porcentaje":""
   },
   {
-    "id":26,
+    "id":27,
     "titulo":"Guante para bebe",
     "imagen":"img/img40.webp",
     "imagenStock":"img/imge40.webp",
